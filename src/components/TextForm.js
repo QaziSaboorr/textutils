@@ -2,6 +2,11 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
+  let Style = {
+    width: "80px",
+    height: "80px",
+    margin: "10px 0px 10px 10px",
+  };
 
   const handleUpClick = () => {
     let newText = text.toUpperCase();
@@ -38,6 +43,17 @@ export default function TextForm(props) {
     speechSynthesis.speak(SpeechoBJ);
   };
 
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
+  const handleCopy = () => {
+    let text = document.getElementById("my-Box");
+    text.select();
+
+    navigator.clipboard.writeText(text.value);
+  };
+
   return (
     <>
       <div className="container">
@@ -52,14 +68,23 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary my-3 mx-3" onClick={handleUpClick}>
+        <button
+          className="btn btn-primary "
+          onClick={handleUpClick}
+          style={Style}
+        >
           Convert to upper Case
         </button>
-        <button className="btn btn-primary my-3 mx-3" onClick={handleloClick}>
+        <button
+          className="btn btn-primary "
+          onClick={handleloClick}
+          style={Style}
+        >
           Convert to lower Case
         </button>
         <button
-          className="btn btn-primary my-3 mx-3"
+          style={Style}
+          className="btn btn-primary "
           onClick={() => {
             captilazeEachWord(text);
           }}
@@ -67,13 +92,26 @@ export default function TextForm(props) {
           Captilize each word.
         </button>
 
-        <button className="btn btn-primary my-3 mx-3" onClick={speak}>
+        <button className="btn btn-primary " onClick={speak} style={Style}>
           Read Text
+        </button>
+
+        <button className="btn btn-primary " onClick={handleCopy} style={Style}>
+          Copy text
+        </button>
+
+        <button
+          className="btn btn-primary "
+          onClick={handleExtraSpaces}
+          style={Style}
+        >
+          remove extra spaces
         </button>
 
         <button
           className="btn btn-primary my-3 mx-3"
           onClick={() => clearText()}
+          style={Style}
         >
           Clear Text
         </button>
