@@ -20,6 +20,24 @@ export default function TextForm(props) {
     setText(lowercaseTex);
   };
 
+  const captilazeEachWord = (str) => {
+    let words = str.split(" "); //array
+
+    // Step 2: Capitalize the first character of each word
+    for (var i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+
+    // Step 3: Join the capitalized words back together
+    setText(words.join(" ")); //array joined by spacing
+  };
+
+  const speak = () => {
+    let SpeechoBJ = new SpeechSynthesisUtterance(text);
+
+    speechSynthesis.speak(SpeechoBJ);
+  };
+
   return (
     <>
       <div className="container">
@@ -37,8 +55,20 @@ export default function TextForm(props) {
         <button className="btn btn-primary my-3 mx-3" onClick={handleUpClick}>
           Convert to upper Case
         </button>
-        <button className="btn btn-primary my-3 " onClick={handleloClick}>
+        <button className="btn btn-primary my-3 mx-3" onClick={handleloClick}>
           Convert to lower Case
+        </button>
+        <button
+          className="btn btn-primary my-3 mx-3"
+          onClick={() => {
+            captilazeEachWord(text);
+          }}
+        >
+          Captilize each word.
+        </button>
+
+        <button className="btn btn-primary my-3 mx-3" onClick={speak}>
+          Read Text
         </button>
 
         <button
