@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
-  const [text, setText] = useState("Enter your text here");
+  const [text, setText] = useState("");
 
-  const [intialWord, wordUpdated] = useState(16);
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
@@ -12,9 +11,15 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
 
-  const WordCount = (text) => {
-    wordUpdated(text.split(" ").length);
+  const clearText = () => {
+    setText("");
   };
+
+  const handleloClick = () => {
+    let lowercaseTex = text.toLowerCase();
+    setText(lowercaseTex);
+  };
+
   return (
     <>
       <div className="container">
@@ -30,19 +35,36 @@ export default function TextForm(props) {
           ></textarea>
         </div>
         <button className="btn btn-primary my-3 mx-3" onClick={handleUpClick}>
-          Convert to uppercase
+          Convert to upper Case
         </button>
+        <button className="btn btn-primary my-3 " onClick={handleloClick}>
+          Convert to lower Case
+        </button>
+
         <button
-          className="btn btn-primary my-3"
-          onClick={() => WordCount(text)}
+          className="btn btn-primary my-3 mx-3"
+          onClick={() => clearText()}
         >
-          Number of Words
+          Clear Text
         </button>
       </div>
       <div className="container mx-3">
         <h3>Your text Summary</h3>
-        <p>Number of Words {intialWord} </p>
-        <p>Number of characters {text.length}</p>
+        <p>
+          Number of Words:
+          {text.split(" ").length - 1}
+        </p>
+        <p>
+          Number of characters:
+          {text.length}
+        </p>
+
+        <p>
+          Minutes to read:
+          {(text.split(" ").length - 1) * 0.008}
+        </p>
+        <h4>Preview</h4>
+        <p>{text}</p>
       </div>
     </>
   );
