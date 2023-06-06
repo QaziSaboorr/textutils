@@ -56,9 +56,8 @@ function App() {
               />
             </Route>
           </Switch>
-
-          {/* <footer id="customFooter">Coded by Qazi Saboor</footer> */}
         </div>
+        <footer id="customFooter">Coded by Qazi Saboor</footer>
       </Router>
     </>
   );
