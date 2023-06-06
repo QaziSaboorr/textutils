@@ -6,6 +6,13 @@ export default function TextForm(props) {
     width: "150px",
     height: "60px",
     margin: "10px 0px 10px 10px",
+    backgroundColor: props.mode === "dark" ? "darkgrey" : "blue",
+    color: props.mode === "dark" ? "white" : "white",
+  };
+  let clearStyle = {
+    width: "150px",
+    height: "60px",
+    margin: "10px 0px 10px 10px",
   };
 
   const handleUpClick = () => {
@@ -59,7 +66,7 @@ export default function TextForm(props) {
       <div
         className="container"
         style={{
-          backgroundColor: props.mode === "dark" ? "grey" : "white",
+          backgroundColor: props.mode === "dark" ? "#1e0b69" : "white",
           color: props.mode === "dark" ? "white" : "black",
         }}
       >
@@ -73,7 +80,7 @@ export default function TextForm(props) {
             id="my-Box"
             rows="8"
             style={{
-              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              backgroundColor: props.mode === "dark" ? "#1e0b69" : "white",
               color: props.mode === "dark" ? "white" : "black",
             }}
           ></textarea>
@@ -121,7 +128,7 @@ export default function TextForm(props) {
         <button
           className="btn btn-danger my-3 mx-3"
           onClick={() => clearText()}
-          style={Style}
+          style={clearStyle}
         >
           Clear Text
         </button>
@@ -129,7 +136,7 @@ export default function TextForm(props) {
       <div
         className="container my-5"
         style={{
-          backgroundColor: props.mode === "dark" ? "grey" : "white",
+          backgroundColor: props.mode === "dark" ? "#1e0b69" : "white",
           color: props.mode === "dark" ? "white" : "black",
         }}
       >

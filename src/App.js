@@ -13,7 +13,7 @@ function App() {
       document.body.style.backgroundColor = "white";
     } else {
       setMode("dark");
-      document.body.style.backgroundColor = "grey";
+      document.body.style.backgroundColor = "#1e0b69";
     }
   };
   return (
