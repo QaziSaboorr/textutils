@@ -28,6 +28,7 @@ export default function About() {
       setbtntext("Enable Light Mood");
     }
   };
+
   return (
     <div className="container" style={myStyle}>
       <h2 className="my-3">About us</h2>

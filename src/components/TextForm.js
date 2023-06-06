@@ -3,8 +3,8 @@ import React, { useState } from "react";
 export default function TextForm(props) {
   const [text, setText] = useState("");
   let Style = {
-    width: "80px",
-    height: "80px",
+    width: "150px",
+    height: "60px",
     margin: "10px 0px 10px 10px",
   };
 
@@ -56,7 +56,13 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container">
+      <div
+        className="container"
+        style={{
+          backgroundColor: props.mode === "dark" ? "grey" : "white",
+          color: props.mode === "dark" ? "white" : "black",
+        }}
+      >
         <h1>{props.heading}</h1>
 
         <div className="form-group">
@@ -66,6 +72,10 @@ export default function TextForm(props) {
             value={text}
             id="my-Box"
             rows="8"
+            style={{
+              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              color: props.mode === "dark" ? "white" : "black",
+            }}
           ></textarea>
         </div>
         <button
@@ -109,14 +119,20 @@ export default function TextForm(props) {
         </button>
 
         <button
-          className="btn btn-primary my-3 mx-3"
+          className="btn btn-danger my-3 mx-3"
           onClick={() => clearText()}
           style={Style}
         >
           Clear Text
         </button>
       </div>
-      <div className="container mx-3">
+      <div
+        className="container my-5"
+        style={{
+          backgroundColor: props.mode === "dark" ? "grey" : "white",
+          color: props.mode === "dark" ? "white" : "black",
+        }}
+      >
         <h3>Your text Summary</h3>
         <p>
           Number of Words:
@@ -132,7 +148,7 @@ export default function TextForm(props) {
           {(text.split(" ").length - 1) * 0.008}
         </p>
         <h4>Preview</h4>
-        <p>{text}</p>
+        <p>{text.length > 0 ? text : "Text entered will be previewed here."}</p>
       </div>
     </>
   );
