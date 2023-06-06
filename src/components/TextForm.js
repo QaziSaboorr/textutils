@@ -18,6 +18,7 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.Showalert("Text has been captilaize.", "success");
   };
   const handleOnChange = (event) => {
     setText(event.target.value);
@@ -25,11 +26,13 @@ export default function TextForm(props) {
 
   const clearText = () => {
     setText("");
+    props.Showalert("Text has been deleted.", "warning");
   };
 
   const handleloClick = () => {
     let lowercaseTex = text.toLowerCase();
     setText(lowercaseTex);
+    props.Showalert("Text has been made lower.", "success");
   };
 
   const captilazeEachWord = (str) => {
@@ -42,23 +45,28 @@ export default function TextForm(props) {
 
     // Step 3: Join the capitalized words back together
     setText(words.join(" ")); //array joined by spacing
+    props.Showalert("Each word has been captilazied.", "success");
   };
 
   const speak = () => {
     let SpeechoBJ = new SpeechSynthesisUtterance(text);
 
     speechSynthesis.speak(SpeechoBJ);
+    props.Showalert("Speech enabled", "success");
   };
 
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.Showalert("Extra white spaces has been removed.", "success");
   };
   const handleCopy = () => {
     let text = document.getElementById("my-Box");
     text.select();
 
     navigator.clipboard.writeText(text.value);
+
+    props.Showalert("Text has been copied.", "success");
   };
 
   return (
