@@ -38,10 +38,16 @@
 
 
 
-
+  "scripts": {
+    
+    "build": "react-scripts build"
+    
+  }
   
 
-  "packageManager": "pnpm@6.3.2"
+
+
+  
 
 
 
