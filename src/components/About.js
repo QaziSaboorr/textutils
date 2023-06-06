@@ -1,4 +1,3 @@
-import React, { useSyncExternalStore } from "react";
 import { useState } from "react";
 
 export default function About() {
@@ -30,7 +29,7 @@ export default function About() {
   };
 
   return (
-    <div className="container" style={myStyle}>
+    <div className="container my-5" style={myStyle}>
       <h2 className="my-3">About us</h2>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">

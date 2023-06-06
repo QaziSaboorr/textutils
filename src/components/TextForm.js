@@ -71,7 +71,7 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container my-5">
         <div
           className="container"
           style={{
