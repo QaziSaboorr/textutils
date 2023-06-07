@@ -100,6 +100,7 @@ export default function TextForm(props) {
             className="btn btn-primary "
             onClick={handleUpClick}
             style={Style}
+            disabled={text.length === 0}
           >
             Upper Case
           </button>
@@ -107,10 +108,12 @@ export default function TextForm(props) {
             className="btn btn-primary "
             onClick={handleloClick}
             style={Style}
+            disabled={text.length === 0}
           >
             Lower Case
           </button>
           <button
+            disabled={text.length === 0}
             style={Style}
             className="btn btn-primary "
             onClick={() => {
@@ -120,11 +123,17 @@ export default function TextForm(props) {
             Captilize words
           </button>
 
-          <button className="btn btn-primary " onClick={speak} style={Style}>
+          <button
+            className="btn btn-primary "
+            onClick={speak}
+            style={Style}
+            disabled={text.length === 0}
+          >
             Read Text
           </button>
 
           <button
+            disabled={text.length === 0}
             className="btn btn-primary "
             onClick={handleCopy}
             style={Style}
@@ -133,6 +142,7 @@ export default function TextForm(props) {
           </button>
 
           <button
+            disabled={text.length === 0}
             className="btn btn-primary "
             onClick={handleExtraSpaces}
             style={Style}
@@ -141,6 +151,7 @@ export default function TextForm(props) {
           </button>
 
           <button
+            disabled={text.length === 0}
             className="btn btn-danger my-3 mx-3"
             onClick={() => clearText()}
             style={clearStyle}
@@ -149,6 +160,7 @@ export default function TextForm(props) {
           </button>
         </div>
         <div
+          disabled={text.length === 0}
           className="container my-5"
           style={{
             backgroundColor: props.mode === "dark" ? "#1e0b69" : "white",
@@ -176,9 +188,7 @@ export default function TextForm(props) {
             }) * 0.008}
           </p>
           <h4>Preview</h4>
-          <p>
-            {text.length > 0 ? text : "Text entered will be previewed here."}
-          </p>
+          <p>{text.length > 0 ? text : "Nothing to preview   !"}</p>
         </div>
       </div>
     </>
