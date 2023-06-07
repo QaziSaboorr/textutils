@@ -67,6 +67,7 @@ export default function TextForm(props) {
     text.select();
 
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
 
     props.Showalert("Text has been copied.", "success");
   };
@@ -184,8 +185,8 @@ export default function TextForm(props) {
           <p>
             Minutes to read:
             {text.split(" ").filter((element) => {
-              return element.length !== 0;
-            }) * 0.008}
+              return element.length != 0;
+            }).length * 0.008}
           </p>
           <h4>Preview</h4>
           <p>{text.length > 0 ? text : "Nothing to preview   !"}</p>
