@@ -40,11 +40,8 @@ function App() {
         mode={mode}
         toggle={toggleMode}
       />
-
       <Alert alert={alert} />
-      {/* Render the Navbar component */}
       <Routes>
-        {/* Define routes */}
         <Route
           path="/"
           element={
@@ -55,7 +52,7 @@ function App() {
             />
           }
         />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About mode={mode} />} />
       </Routes>
       <footer id="customFooter">Coded by Qazi Saboor</footer>
     </BrowserRouter>
@@ -63,55 +60,3 @@ function App() {
 }
 
 export default App;
-
-// {/* <Router>
-//   <Navbar
-//     title="TextUtils"
-//     aboutText="About"
-//     mode={mode}
-//     toggle={toggleMode}
-//   />
-//   <Alert alert={alert} />
-//   <div className="container my-3">
-//     <Switch>
-//       <Route path="/about">
-//         <About />
-//       </Route>
-//       <Route path="/dummy">
-//         <Test />
-//       </Route>
-//       <Route path="/">
-//         <TextForm
-//           heading="Text to test"
-//           mode={mode}
-//           Showalert={showAlert}
-//         />
-//       </Route>
-//     </Switch>
-//   </div>
-//   <footer id="customFooter">Coded by Qazi Saboor</footer>
-// </Router> */}
-// // <BrowserRouter>
-// //   <Routes>
-// //     <Navbar
-// //       title="TextUtils"
-// //       aboutText="About"
-// //       mode={mode}
-// //       toggle={toggleMode}
-// //     />
-// //     <Alert alert={alert} />
-// //     <Route path="/">
-// //       element =
-// //       {
-// //         <TextForm
-// //           heading="Text to test"
-// //           mode={mode}
-// //           Showalert={showAlert}
-// //         />
-// //       }
-// //     </Route>
-// //     <Route path="/about">element = {<About />}</Route>
-// //   </Routes>
-// // </BrowserRouter>
-
-// <>

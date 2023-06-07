@@ -3,16 +3,18 @@ import React, { useState } from "react";
 export default function TextForm(props) {
   const [text, setText] = useState("");
   let Style = {
-    width: "150px",
+    width: "100px",
     height: "60px",
     margin: "10px 0px 10px 10px",
     backgroundColor: props.mode === "dark" ? "darkgrey" : "blue",
     color: props.mode === "dark" ? "white" : "white",
+    fontSize: "xx-smallx",
   };
   let clearStyle = {
-    width: "150px",
+    width: "100px",
     height: "60px",
     margin: "10px 0px 10px 10px",
+    fontSize: "xx-smallx",
   };
 
   const handleUpClick = () => {
@@ -99,14 +101,14 @@ export default function TextForm(props) {
             onClick={handleUpClick}
             style={Style}
           >
-            Convert to upper Case
+            Upper Case
           </button>
           <button
             className="btn btn-primary "
             onClick={handleloClick}
             style={Style}
           >
-            Convert to lower Case
+            Lower Case
           </button>
           <button
             style={Style}
@@ -115,7 +117,7 @@ export default function TextForm(props) {
               captilazeEachWord(text);
             }}
           >
-            Captilize each word.
+            Captilize words
           </button>
 
           <button className="btn btn-primary " onClick={speak} style={Style}>
@@ -135,7 +137,7 @@ export default function TextForm(props) {
             onClick={handleExtraSpaces}
             style={Style}
           >
-            remove extra spaces
+            Rm extra spaces
           </button>
 
           <button
@@ -156,7 +158,11 @@ export default function TextForm(props) {
           <h3>Your text Summary</h3>
           <p>
             Number of Words:
-            {text.split(" ").length - 1}
+            {
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length
+            }
           </p>
           <p>
             Number of characters:
@@ -165,7 +171,9 @@ export default function TextForm(props) {
 
           <p>
             Minutes to read:
-            {(text.split(" ").length - 1) * 0.008}
+            {text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }) * 0.008}
           </p>
           <h4>Preview</h4>
           <p>
