@@ -63,11 +63,7 @@ export default function TextForm(props) {
     props.Showalert("Extra white spaces has been removed.", "success");
   };
   const handleCopy = () => {
-    let text = document.getElementById("my-Box");
-    text.select();
-
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
 
     props.Showalert("Text has been copied.", "success");
   };
@@ -172,7 +168,7 @@ export default function TextForm(props) {
           <p>
             Number of Words:
             {
-              text.split(" ").filter((element) => {
+              text.split(/\s+/).filter((element) => {
                 return element.length !== 0;
               }).length
             }
@@ -184,8 +180,8 @@ export default function TextForm(props) {
 
           <p>
             Minutes to read:
-            {text.split(" ").filter((element) => {
-              return element.length != 0;
+            {text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
             }).length * 0.008}
           </p>
           <h4>Preview</h4>
