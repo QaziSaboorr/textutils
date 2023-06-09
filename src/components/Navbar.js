@@ -36,6 +36,29 @@ export default function Navbar(props) {
             </li>
           </ul>
           <form className="d-flex" role="search">
+            <div className="d-flex">
+              <div
+                className="bg-success rounded mx-2"
+                style={{ width: "30px", height: "30px", cursor: "pointer" }}
+                onClick={() => {
+                  props.toggle2("success");
+                }}
+              ></div>
+              <div
+                className="bg-warning rounded mx-2"
+                style={{ width: "30px", height: "30px", cursor: "pointer" }}
+                onClick={() => {
+                  props.toggle2("warning");
+                }}
+              ></div>
+              <div
+                className="bg-danger rounded mx-2"
+                style={{ width: "30px", height: "30px", cursor: "pointer" }}
+                onClick={() => {
+                  props.toggle2("danger");
+                }}
+              ></div>
+            </div>
             <div className="container">
               <div
                 className={`form-check form-switch text-${

@@ -21,7 +21,22 @@ function App() {
 
     setTimeout(() => setAlert(null), 1000);
   };
+
+  const removeClasses = () => {
+    document.body.classList.remove("bg-light");
+    document.body.classList.remove("bg-dark");
+    document.body.classList.remove("bg-success");
+    document.body.classList.remove("bg-warning");
+    document.body.classList.remove("bg-danger");
+  };
+
+  const toggleMode2 = (cls) => {
+    removeClasses();
+    document.body.classList.add("bg-" + cls);
+  };
   const toggleMode = () => {
+    removeClasses();
+
     if (mode === "dark") {
       setMode("light");
       document.body.style.backgroundColor = "white";
@@ -39,6 +54,7 @@ function App() {
         aboutText="About"
         mode={mode}
         toggle={toggleMode}
+        toggle2={toggleMode2}
       />
       <Alert alert={alert} />
       <Routes>
